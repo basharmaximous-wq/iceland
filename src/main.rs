@@ -6,7 +6,7 @@ use clap::{Parser, Subcommand};
 use dirs::home_dir;
 use std::fs::{self, File};
 use std::io::{self, Write};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 // ==============================================
 // CONSTANTS / CONFIG
@@ -83,7 +83,6 @@ fn main() {
         Commands::Notes { area, text } => add_note(&area, &text),
     };
 
-    // If any command returned an error, print it nicely.
     if let Err(e) = result {
         eprintln!("Error: {e}");
     }
@@ -130,8 +129,7 @@ fn init_iceland() -> io::Result<()> {
             println!("Created area: {} ({})", area, area_path.display());
         }
 
-        // Ensure minimal common structure
-        // (most areas will have at least notes)
+        // Ensure minimal common structure (most areas have at least notes)
         let notes_dir = area_path.join("notes");
         if !notes_dir.exists() {
             fs::create_dir_all(&notes_dir)?;
@@ -149,10 +147,10 @@ fn init_iceland() -> io::Result<()> {
         }
     }
 
-    // Default current area: personal (you can change this later)
+    // Default current area: learning (one of your real areas)
     let config = get_config_file();
     let mut file = File::create(config)?;
-    writeln!(file, "personal")?;
+    writeln!(file, "learning")?;
 
     println!("ICEland initialized with: {}.", DEFAULT_AREAS.join(", "));
     Ok(())
@@ -160,7 +158,7 @@ fn init_iceland() -> io::Result<()> {
 
 // --- Area-specific helpers (keep init_iceland simpler) ---
 
-fn init_math_area(area_path: &PathBuf) -> io::Result<()> {
+fn init_math_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("flashcards"))?;
     fs::create_dir_all(area_path.join("browser_firefox"))?;
 
@@ -170,7 +168,7 @@ fn init_math_area(area_path: &PathBuf) -> io::Result<()> {
     Ok(())
 }
 
-fn init_learning_area(area_path: &PathBuf) -> io::Result<()> {
+fn init_learning_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("summaries"))?;
     fs::create_dir_all(area_path.join("browser_comet"))?;
 
@@ -184,14 +182,14 @@ fn init_learning_area(area_path: &PathBuf) -> io::Result<()> {
     Ok(())
 }
 
-fn init_work_area(area_path: &PathBuf) -> io::Result<()> {
+fn init_work_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("projects"))?;
     fs::create_dir_all(area_path.join("docs"))?;
     fs::create_dir_all(area_path.join("browser_profile"))?;
     Ok(())
 }
 
-fn init_gaming_area(area_path: &PathBuf) -> io::Result<()> {
+fn init_gaming_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("games"))?;
     fs::create_dir_all(area_path.join("clips"))?;
     fs::create_dir_all(area_path.join("browser_profile"))?;
@@ -204,7 +202,7 @@ fn init_gaming_area(area_path: &PathBuf) -> io::Result<()> {
     Ok(())
 }
 
-fn init_traveling_area(area_path: &PathBuf) -> io::Result<()> {
+fn init_traveling_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("plans"))?;
 
     let mut links = File::create(area_path.join("links.txt"))?;
@@ -214,7 +212,7 @@ fn init_traveling_area(area_path: &PathBuf) -> io::Result<()> {
     Ok(())
 }
 
-fn init_trading_area(area_path: &PathBuf) -> io::Result<()> {
+fn init_trading_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("analysis"))?;
 
     let mut links = File::create(area_path.join("links.txt"))?;
