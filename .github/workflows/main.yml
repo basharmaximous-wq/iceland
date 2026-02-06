@@ -1,23 +1,4 @@
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install aarch64 musl toolchain
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y musl-tools gcc-aarch64-linux-gnu
-
-      - name: Add aarch64-unknown-linux-musl target
-        run: rustup target add aarch64-unknown-linux-musl
-
-      - name: Build (aarch64 musl)
-        env:
-          CC_aarch64_unknown_linux_musl: aarch64-linux-gnu-gcc
-          AR_aarch64_unknown_linux_musl: ar
-        run: cargo build --release --target aarch64-unknown-linux-musl
-## Build ICEland binaries
+name: Build ICEland binaries
 
 on:
   push:
@@ -30,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Rust toolchain
         uses: actions-rs/toolchain@v1
@@ -39,12 +20,16 @@ jobs:
           target: aarch64-unknown-linux-musl
           override: true
 
-      - name: Install musl tools
-        run: sudo apt-get update && sudo apt-get install -y musl-tools
+      - name: Install AArch64 musl toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y musl-tools gcc-aarch64-linux-gnu
 
       - name: Build aarch64 static binary
-        run: |
-          cargo build --release --target aarch64-unknown-linux-musl
+        env:
+          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_MUSL_LINKER: aarch64-linux-gnu-gcc
+          CC_aarch64_unknown_linux_musl: aarch64-linux-gnu-gcc
+        run: cargo build --release --target aarch64-unknown-linux-musl
 
       - name: Upload binary artifact
         uses: actions/upload-artifact@v4
