@@ -1,6 +1,4 @@
-
-
-ICEland 
+# ICEland
 
 **Your Focused Digital Areas on One Device**
 
@@ -14,11 +12,14 @@ Instead of mixing everything into one chaotic home directory, ICEland creates st
 
 Each area gets:
 
-* Its own folder under `~/.iceland/<area>/`
-* A dedicated `notes/` folder
-* Area-specific folders (e.g. `flashcards/`, `analysis/`, `plans/`)
-* A `links.txt` file with useful, area-relevant links
-* CLI commands to switch areas, reset parts of an area, and append notes
+- Its own folder under `~/.iceland/<area>/`
+- A dedicated `notes/` folder
+- Area-specific folders (e.g. `flashcards/`, `analysis/`, `plans/`)
+- A `links.txt` file with useful, area-relevant links
+- CLI commands to switch areas, reset parts of an area, and append notes
+- A basic **time log** written to `~/.iceland/sessions.csv`
+- Optional **browser launch** per area (simple `firefox -P <area>` by default)
+- A simple **TUI selector** (`iceland tui`) to choose areas with arrow keys
 
 ICEland is a **local tool**: it runs entirely on your computer and organizes your files. The website only explains and presents the idea.
 
@@ -26,19 +27,19 @@ ICEland is a **local tool**: it runs entirely on your computer and organizes you
 
 ## Why ICEland?
 
-Many people (including me) use the same laptop for everything: university, self-study, gaming, and sometimes trading. The result is often messy:
+Many people use the same laptop for everything: university, self-study, gaming, and sometimes trading. The result is often messy:
 
-* Study notes next to game screenshots
-* Trading links mixed with math videos in browser history
-* Constant context switching and loss of focus
+- Study notes next to game screenshots  
+- Trading links mixed with math videos in browser history  
+- Constant context switching and loss of focus  
 
 ICEland creates **separate “digital identities” (areas)** on one device without needing multiple users or virtual machines:
 
-* In `learning` mode → Primuss, Wikipedia, and study notes
-* In `gaming` mode → games and clips, not exams and grades
-* In `trading` mode → analysis notes and Forex news, not Netflix
+- In `learning` mode → Primuss, Wikipedia, and study notes  
+- In `gaming` mode → games and clips, not exams and grades  
+- In `trading` mode → analysis notes and Forex news, not Netflix  
 
-With one simple CLI tool, you can quickly prepare and switch between these worlds.
+With one simple CLI tool, you can prepare and switch between these worlds, and now also log time and pick areas via a TUI.
 
 ---
 
@@ -48,49 +49,60 @@ With one simple CLI tool, you can quickly prepare and switch between these world
 
 ```bash
 iceland init
-```
-
 This will:
 
-* Create a hidden base folder: `~/.iceland/`
-* Create default areas:
+Create a hidden base folder: ~/.iceland/
 
-  * `work`
-  * `math`
-  * `learning`
-  * `gaming`
-  * `traveling`
-  * `trading`
-* Set up a `notes/` folder in each area
-* Create area-specific structures such as:
+Create default areas:
 
-  * `math/`: `flashcards/`, `browser_firefox/`, math links
-  * `learning/`: `summaries/`, `browser_comet/`, links to Primuss, Wikipedia, ChatGPT
-  * `work/`: `projects/`, `docs/`, `browser_profile/`
-  * `gaming/`: `games/`, `clips/`, `browser_profile/`, game links
-  * `traveling/`: `plans/`, travel/news links
-  * `trading/`: `analysis/`, Forex links
-* Write the current area (default: `learning`) into `~/.iceland_current`
+work
 
----
+math
 
-### 2. Switch between areas
+learning
 
-```bash
+gaming
+
+traveling
+
+trading
+
+Set up a notes/ folder in each area
+
+Create area-specific structures such as:
+
+math/: flashcards/, browser_firefox/, math links
+
+learning/: summaries/, browser_comet/, links to Primuss, Wikipedia, ChatGPT
+
+work/: projects/, docs/, browser_profile/
+
+gaming/: games/, clips/, browser_profile/, game links
+
+traveling/: plans/, travel/news links
+
+trading/: analysis/, Forex links
+
+Write the current area (default: learning) into ~/.iceland_current
+
+2. Switch between areas (CLI)
+bash
 iceland switch learning
 iceland switch gaming
 iceland switch trading
-```
-
 This will:
 
-* Update `~/.iceland_current` with the selected area
-* Print the path of that area
-* Display useful links from `links.txt` if it exists
+Update ~/.iceland_current with the selected area
+
+Print the path of that area
+
+Display useful links from links.txt if it exists
+
+Log a simple session entry for the previous area into ~/.iceland/sessions.csv
 
 Example output:
 
-```
+text
 Switched to area: learning
 Your area folder: /home/user/.iceland/learning
 
@@ -101,122 +113,143 @@ Wikipedia:
 https://www.wikipedia.org
 ChatGPT:
 https://chat.openai.com
-```
+After switching, ICEland also tries to launch a browser using the area name as a profile, for example:
 
----
+bash
+firefox -P learning
+You can adjust this behaviour in the source code to match your browser and operating system.
 
-### 3. Check current status
+3. Switch between areas (TUI with arrow keys)
+bash
+iceland tui
+This will:
 
-```bash
+Show a simple terminal UI listing all default areas
+
+Let you move with up/down arrows and select with Enter
+
+Internally call switch for the chosen area (including time logging and link display)
+
+This is a quick way to jump between modes without typing the area name each time.
+
+4. Check current status
+bash
 iceland status
-```
-
 Shows:
 
-* The currently active area
-* The filesystem path to that area
+The currently active area
+
+The filesystem path to that area
 
 Example:
 
-```
+text
 Current area: learning
 Path: /home/user/.iceland/learning
-```
-
----
-
-### 4. Reset parts of an area (soft “destroy”)
-
+5. Reset parts of an area (soft “destroy”)
 Sometimes you want a fresh start in one part of an area without deleting everything.
 
-```bash
+bash
 iceland destroy work browser
 iceland destroy math notes
-```
-
-#### `destroy <area> browser`
-
+destroy <area> browser
 Deletes and recreates browser-related folders in that area:
 
-* `browser_firefox/`
-* `browser_comet/`
-* `browser_profile/`
+browser_firefox/
+
+browser_comet/
+
+browser_profile/
 
 Useful if you want to clear local browser profile data for that area.
 
-#### `destroy <area> notes`
-
-Deletes and recreates the `notes/` folder in that area.
+destroy <area> notes
+Deletes and recreates the notes/ folder in that area.
 
 This gives you a clean notes space without touching other files.
 
-> ICEland never deletes the entire `~/.iceland` folder or an area itself in a single command to avoid accidents.
+ICEland never deletes the entire ~/.iceland folder or an area itself in a single command to avoid accidents.
 
----
-
-### 5. Append notes to an area
-
-```bash
+6. Append notes to an area
+bash
 iceland notes learning "Study Rust at 17:00"
 iceland notes trading "Check economic calendar before entry"
-```
-
 This will:
 
-* Ensure the `notes/` folder exists
-* Append your text as a new line to `notes/my_notes.txt`
-* Let you build a simple log or TODO list per area
+Ensure the notes/ folder exists
 
----
+Append your text as a new line to notes/my_notes.txt
 
-## Installation
+Let you build a simple log or TODO list per area
 
-### Prerequisites
+7. Time tracking & stats (basic)
+ICEland records basic session entries whenever you switch away from an area.
 
-* Rust toolchain (install via `rustup`)
-* `cargo` available in your terminal
+Session log file: ~/.iceland/sessions.csv
 
-### Build from source
+Format (CSV with header):
 
-```bash
+text
+area,start,end
+learning,2025-01-01T10:00:00+01:00,2025-01-01T10:05:00+01:00
+gaming,2025-01-01T10:05:00+01:00,2025-01-01T10:30:00+01:00
+You can get a simple summary with:
+
+bash
+iceland stats
+This will:
+
+Read sessions.csv
+
+Parse all entries
+
+Print total time per area (in seconds)
+
+Example output:
+
+text
+Time per area (seconds, approximate):
+- learning: 300s
+- gaming: 1500s
+Right now, sessions are recorded in a very simple way and are more a starting point for future, more accurate tracking (with real start/stop and daily reports).
+
+Installation
+Prerequisites
+Rust toolchain (install via rustup)
+
+cargo available in your terminal
+
+Build from source
+bash
 git clone https://github.com/<your-username>/iceland.git
 cd iceland
 cargo build --release
-```
-
 The compiled binary will be at:
 
-```
+text
 target/release/iceland
-```
+You can copy it to any directory in your PATH, for example:
 
-You can copy it to any directory in your `PATH`, for example:
-
-```bash
+bash
 cp target/release/iceland ~/bin/
-```
+Prebuilt binaries
+If you use the provided GitHub Actions workflow, you can download a statically linked Linux binary (e.g. *-unknown-linux-musl) from the Actions artifacts and run it directly on a compatible Linux system.
 
----
-
-### Prebuilt binaries
-
-If you use the provided GitHub Actions workflow, you can download a statically linked Linux binary (`*-unknown-linux-musl`) from the Actions artifacts and run it directly on a compatible Linux system.
-
----
-
-## Usage Summary
-
-```bash
+Usage Summary
+bash
 # First-time setup
 iceland init
 
 # Check current area
 iceland status
 
-# Switch areas
+# Switch areas (CLI)
 iceland switch learning
 iceland switch gaming
 iceland switch trading
+
+# Switch areas (TUI with arrow keys)
+iceland tui
 
 # Add notes to an area
 iceland notes learning "finish assignment 3"
@@ -225,59 +258,74 @@ iceland notes math "review integrals"
 # Reset browser data or notes for an area
 iceland destroy gaming browser
 iceland destroy math notes
-```
 
-### Important Paths
+# Show basic time stats per area
+iceland stats
+Important Paths
+Base directory: ~/.iceland/
 
-* **Base directory:** `~/.iceland/`
-* **Current area file:** `~/.iceland_current`
-* **Notes:** `~/.iceland/<area>/notes/my_notes.txt`
-* **Links:** `~/.iceland/<area>/links.txt`
+Current area file: ~/.iceland_current
 
----
+Notes: ~/.iceland/<area>/notes/my_notes.txt
 
-## Project Structure
+Links: ~/.iceland/<area>/links.txt
 
-### Core files
+Sessions: ~/.iceland/sessions.csv
 
-* `Cargo.toml` — Rust package configuration and dependencies (`clap`, `dirs`)
-* `src/main.rs` — CLI logic and filesystem operations
-* `website/index.html` or `docs/index.html` — Marketing page for ICEland
+Project Structure
+Core files
+Cargo.toml — Rust package configuration and dependencies (clap, dirs, chrono, serde, dialoguer)
 
-### Main concepts in `main.rs`
+src/main.rs — CLI logic, filesystem operations, time logging, and TUI selector
 
-* Uses **clap** for argument parsing and subcommands (`init`, `switch`, `status`, `destroy`, `notes`)
-* Uses `dirs::home_dir()` to locate `~`
-* Uses standard `fs` and `File` APIs to create, modify, and reset folders
-* Stores current area in `~/.iceland_current`
+website/index.html or docs/index.html — Marketing page for ICEland
 
----
+Main concepts in main.rs
+Uses clap for argument parsing and subcommands (init, switch, tui, status, stats, destroy, notes)
 
-## Personal Learning Goals
+Uses dirs::home_dir() to locate ~
 
+Uses standard fs and File APIs to create, modify, and reset folders
+
+Stores current area in ~/.iceland_current
+
+Logs simple sessions to ~/.iceland/sessions.csv
+
+Uses dialoguer to implement a minimal TUI area selector
+
+Personal Learning Goals
 ICEland was built to practice:
 
-* Rust basics in a real project
-* CLI design and error handling with `Result`
-* Filesystem I/O in Rust
-* Using Linux-style folder structures for productivity
-* Structuring work, study, and free time into separate digital “identities”
-* Presenting a small tool with a website and a future “Pro” concept
+Rust basics in a real project
 
----
+CLI design and error handling with Result
 
-## Future Ideas
+Filesystem I/O in Rust
 
+Using Linux-style folder structures for productivity
+
+Structuring work, study, and free time into separate digital “identities”
+
+Presenting a small tool with a website and a future “Pro” concept
+
+Experimenting with time tracking and TUI libraries in Rust
+
+Future Ideas
 Possible next features:
 
-* Automatically launch a browser with the correct profile for each area
-* Time tracking per area (learning vs gaming vs work)
-* Integration with task managers or calendars
-* A simple TUI (terminal UI) to select areas with arrow keys
+More accurate time tracking (real start/stop sessions, idle detection, daily/weekly reports)
 
----
+Configurable browser commands per area (Chrome profiles, Edge, different profiles per OS)
 
-## License
+Integration with task managers or calendars (Todoist, Notion, Google Calendar)
 
+Richer TUI dashboard (live timers, stats, area details) or a small desktop GUI
+
+Cloud backup of notes and configuration
+
+License
 This project is currently used for a university exam and personal learning.
 No explicit license is granted for production use.
+
+text
+undefined
