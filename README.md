@@ -1,4 +1,4 @@
-# 🧊 **ICEland — Your Focused Digital Areas**
+#  **ICEland — Your Focused Digital Areas**
 
 **From chaos to clarity — one command at a time.**
 
