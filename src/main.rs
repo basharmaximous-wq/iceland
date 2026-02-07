@@ -521,7 +521,8 @@ fn tui_select_area() -> io::Result<()> {
         .with_prompt("Select an area")
         .items(&areas)
         .default(0)
-        .interact()?;
+        .interact()
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
 
     let chosen = &areas[selection];
     switch_area(chosen)
