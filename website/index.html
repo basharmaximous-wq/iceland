@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ICEland — Your Focused Digital Areas</title>
+  <title>ICEland — Focused Digital Areas & Time Tracking</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,6 +33,12 @@
       padding: 4px 8px;
       border-radius: 4px;
     }
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
     .commands {
       background: #f0f0f0;
       padding: 1rem;
@@ -43,81 +49,157 @@
       margin-top: 2rem;
       color: #666;
     }
+    ul {
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>ICEland</h1>
-  <p>Your personal command-line tool for focused digital areas.</p>
+  <p>Your personal command-line tool for focused digital areas, notes, and time tracking.</p>
 </header>
 
 <main>
 
-<h2>What is ICEland?</h2>
-<p>
-ICEland is a Rust-based command-line tool that helps you separate your digital life into clear, focused areas such as <strong>work, learning, math, gaming, traveling, and trading</strong>.
-Instead of mixing everything on one computer, ICEland creates structured environments so you can focus better and stay organized.
-</p>
+  <h2>What is ICEland?</h2>
+  <p>
+    ICEland is a Rust-based command-line tool that helps you separate your digital life into clear, focused areas such as
+    <strong>work, learning, math, gaming, traveling, and trading</strong>.
+    It creates structured environments with notes, links, and basic time tracking so you can stay organized and see where your time goes.
+  </p>
 
-<h2>Who is this for?</h2>
-<ul>
-  <li>Students who want to separate study, work, and personal time.</li>
-  <li>Developers who like clean, structured workflows.</li>
-  <li>Anyone who gets distracted by mixed files, notes, and browser activity.</li>
-</ul>
+  <h2>Who is this for?</h2>
+  <ul>
+    <li>Students who want to separate study, work, and personal time.</li>
+    <li>Developers who like clean, structured workflows.</li>
+    <li>Anyone who gets distracted by mixed files, notes, and browser activity.</li>
+  </ul>
 
-<h2>What does ICEland do?</h2>
-<p>With one command, ICEland sets up:</p>
-<ul>
-  <li>Dedicated folders for each area.</li>
-  <li>Area-specific tools (notes, analysis, flashcards, etc.).</li>
-  <li>Separate browser profile spaces per area.</li>
-  <li>Useful links per area (Primuss, Wikipedia, games, Forex Factory, news, etc.).</li>
-  <li>A way to switch between areas instantly.</li>
-  <li>A way to reset (“destroy”) browser data or notes per area.</li>
-</ul>
+  <h2>What does ICEland do now?</h2>
+  <p>With one tool, ICEland sets up and manages:</p>
+  <ul>
+    <li>Dedicated folders for each area under <code>~/.iceland</code>.</li>
+    <li>Area-specific tools (notes, flashcards, projects, analysis, etc.).</li>
+    <li>Separate browser profile spaces per area (simple profile folders, plus optional browser launch per area).</li>
+    <li>Useful links per area (Primuss, Wikipedia, games, Forex Factory, news, etc.).</li>
+    <li>A way to switch between areas instantly via CLI or a simple TUI (arrow keys).</li>
+    <li>A way to reset (“destroy”) browser data or notes per area.</li>
+    <li>A basic time log (sessions) per area in <code>~/.iceland/sessions.csv</code> and a <code>stats</code> command to summarize it.</li>
+  </ul>
 
-  <h2>How to use it</h2>
-<p>
-Download the ICEland Linux binary from the project’s GitHub releases or build it yourself with <code>cargo build --release</code>. Then run it from your terminal:
-</p>
+  <h2>Installation</h2>
+  <p>
+    Download the ICEland Linux binary from the project’s GitHub releases or build it yourself with:
+  </p>
+  <pre><code>cargo build --release</code></pre>
+  <p>
+    Then put the compiled binary somewhere in your <code>$PATH</code> (for example <code>/usr/local/bin</code>) and run it from your terminal.
+  </p>
 
-<h2>Example Commands</h2>
-<div class="commands">
-<pre>
-<code>iceland init</code>
-<code>iceland switch learning</code>
-<code>iceland notes learning "Study Rust at 5pm"</code>
-<code>iceland destroy gaming browser</code>
-<code>iceland status</code>
-</pre>
-</div>
+  <h2>Core Commands</h2>
 
-<h2>How ICEland helps you focus</h2>
-<p>
-When you switch to <strong>learning</strong>, you see Primuss, Wikipedia, and ChatGPT links.
-When you switch to <strong>gaming</strong>, you see simple games.
-When you switch to <strong>trading</strong>, you see Forex Factory.
-This keeps your mindset aligned with your current task.
-</p>
+  <h3>Initialize areas</h3>
+  <div class="commands">
+    <pre><code>iceland init</code></pre>
+  </div>
+  <p>
+    Creates the base folder <code>~/.iceland</code> and default areas:
+    <code>work</code>, <code>math</code>, <code>learning</code>, <code>gaming</code>, <code>traveling</code>, <code>trading</code>.
+    Each area gets its own subfolders (like <code>notes</code>, <code>flashcards</code>, <code>browser_*</code>) and some starter links.
+  </p>
 
-<h2>Future & Business Idea</h2>
-<p>
-ICEland is currently free and open source.
-In the future, a “Pro” version could include:
-</p>
-<ul>
-  <li>Automatic browser launching with real profiles.</li>
-  <li>Cloud backup of notes.</li>
-  <li>Better UI or GUI.</li>
-</ul>
+  <h3>Switch areas (classic CLI)</h3>
+  <div class="commands">
+    <pre><code>iceland switch learning
+iceland switch gaming</code></pre>
+  </div>
+  <p>
+    Updates the current area stored in <code>~/.iceland_current</code>, prints the area path, and shows any <code>links.txt</code> for that area.
+    When you switch from one area to another, ICEland also writes a simple time entry for the previous area into <code>~/.iceland/sessions.csv</code> (basic session log).
+  </p>
+  <p>
+    After switching, ICEland tries to launch a browser using the area name as profile (for example, <code>firefox -P work</code> for the <code>work</code> area).  
+    You can adapt this behaviour in the code to match your browser and OS.
+  </p>
 
-<footer>
-  <p>Built with ❤️ in Rust.</p>
-</footer>
+  <h3>Switch areas with a TUI (arrow keys)</h3>
+  <div class="commands">
+    <pre><code>iceland tui</code></pre>
+  </div>
+  <p>
+    Opens a simple terminal UI list of all default areas.
+    Use the up/down arrow keys to select an area and press Enter.
+    Internally this does the same as <code>iceland switch &lt;area&gt;</code> (including time logging and showing links).
+  </p>
+
+  <h3>Notes per area</h3>
+  <div class="commands">
+    <pre><code>iceland notes learning "Study Rust at 5pm"
+iceland notes math "Do exercise 5"</code></pre>
+  </div>
+  <p>
+    Appends a line of text to <code>~/.iceland/&lt;area&gt;/notes/my_notes.txt</code>.  
+    This keeps your notes clearly separated for each area.
+  </p>
+
+  <h3>Check current area</h3>
+  <div class="commands">
+    <pre><code>iceland status</code></pre>
+  </div>
+  <p>
+    Shows which area is currently active and the filesystem path for that area.
+  </p>
+
+  <h3>Reset browser or notes for an area</h3>
+  <div class="commands">
+    <pre><code>iceland destroy gaming browser
+iceland destroy learning notes</code></pre>
+  </div>
+  <p>
+    Resets selected parts of an area:
+  </p>
+  <ul>
+    <li><code>browser</code>: clears and recreates any <code>browser_*</code> directories inside that area.</li>
+    <li><code>notes</code>: clears and recreates the <code>notes</code> folder for that area.</li>
+  </ul>
+
+  <h3>Time statistics per area</h3>
+  <div class="commands">
+    <pre><code>iceland stats</code></pre>
+  </div>
+  <p>
+    Reads the session log in <code>~/.iceland/sessions.csv</code> and prints the total time (in seconds) per area, based on recorded entries.  
+    This is a simple approximation that you can later extend into full time tracking (start/stop, daily reports, etc.).
+  </p>
+
+  <h2>How ICEland helps you focus</h2>
+  <p>
+    When you switch to <strong>learning</strong>, you see Primuss, Wikipedia, and ChatGPT links.
+    When you switch to <strong>gaming</strong>, you see simple web games.
+    When you switch to <strong>trading</strong>, you see Forex Factory and space for analysis.
+  </p>
+  <p>
+    With the TUI and time stats, you can quickly select your current context and later review how much time you spent in each area.
+  </p>
+
+  <h2>Future & Pro Ideas</h2>
+  <p>
+    ICEland is currently free and open source.
+    In the future, a “Pro” version could include:
+  </p>
+  <ul>
+    <li>Richer time tracking (real start/stop sessions, daily/weekly reports, exports).</li>
+    <li>Automatic, configurable browser launching per area (Chrome/Firefox/Edge profiles, work vs gaming windows).</li>
+    <li>Integration with task managers or calendars to create tasks or log time.</li>
+    <li>A more advanced TUI dashboard or even a small desktop GUI.</li>
+  </ul>
+
+  <footer>
+    <p>Built with ❤️ in Rust.</p>
+  </footer>
 
 </main>
 </body>
-
 </html>
