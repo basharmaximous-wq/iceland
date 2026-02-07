@@ -283,6 +283,32 @@ Binary will be at:
 ```
 target/release/iceland
 ```
+## Prebuilt binaries
+
+ICEland is built automatically by GitHub Actions for multiple targets:
+
+- **Linux x86_64** (static, `x86_64-unknown-linux-musl`)
+- **Windows x86_64** (`x86_64-pc-windows-gnu`, `.exe`)
+
+You can download the latest binaries from:
+
+- GitHub **Releases** (recommended)  
+- Or from the **Actions** page → select a successful workflow run → **Artifacts**
+
+Example files:
+
+- `iceland-x86_64-unknown-linux-musl` – Linux 64‑bit binary
+- `iceland-x86_64-pc-windows-gnu.exe` – Windows 64‑bit executable
+
+After download:
+
+```bash
+# Linux
+chmod +x iceland-x86_64-unknown-linux-musl
+./iceland-x86_64-unknown-linux-musl init
+
+# Windows (PowerShell / CMD)
+iceland-x86_64-pc-windows-gnu.exe init
 
 You can add it to your PATH:
 
