@@ -29,7 +29,7 @@ ICEland is a Rust-based CLI tool to separate your digital life into focused area
 
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/iceland.git
+git clone[ https://github.com/YOUR-USERNAME/iceland.git](https://github.com/basharmaximous-wq/iceland.git) 
 cd iceland
 cargo build --release
 # Copy binary to PATH
