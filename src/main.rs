@@ -4,9 +4,16 @@
 
 use clap::{Parser, Subcommand};
 use dirs::home_dir;
+use std::collections::HashMap;
 use std::fs::{self, File};
 use std::io::{self, Write};
 use std::path::{Path, PathBuf};
+
+// New imports
+use chrono::{DateTime, Local};
+use dialoguer::{theme::ColorfulTheme, Select};
+use serde::{Deserialize, Serialize};
+use std::process::Command;
 
 // ==============================================
 // CONSTANTS / CONFIG
@@ -17,13 +24,24 @@ use std::path::{Path, PathBuf};
 const DEFAULT_AREAS: &[&str] = &["work", "math", "learning", "gaming", "traveling", "trading"];
 
 // ==============================================
+// DATA STRUCTURES
+// ==============================================
+
+#[derive(Serialize, Deserialize, Debug)]
+struct Session {
+    area: String,
+    start: DateTime<Local>,
+    end: DateTime<Local>,
+}
+
+// ==============================================
 // CLI DEFINITION
 // ==============================================
 
 #[derive(Parser)]
 #[command(
     name = "iceland",
-    about = "Create and manage focused digital areas with tools, links, and notes"
+    about = "Create and manage focused digital areas with tools, links, notes, and time tracking"
 )]
 struct Cli {
     #[command(subcommand)]
@@ -41,8 +59,14 @@ enum Commands {
         area: String,
     },
 
+    /// TUI selection with arrow keys
+    Tui,
+
     /// Show which area is currently active
     Status,
+
+    /// Show time statistics per area
+    Stats,
 
     /// Reset something inside an area (browser or notes)
     ///
@@ -78,7 +102,9 @@ fn main() {
     let result = match cli.command {
         Commands::Init => init_iceland(),
         Commands::Switch { area } => switch_area(&area),
+        Commands::Tui => tui_select_area(),
         Commands::Status => show_status(),
+        Commands::Stats => show_stats(),
         Commands::Destroy { area, target } => destroy_in_area(&area, &target),
         Commands::Notes { area, text } => add_note(&area, &text),
     };
@@ -103,6 +129,13 @@ fn get_iceland_dir() -> PathBuf {
 fn get_config_file() -> PathBuf {
     let mut path = home_dir().expect("Could not find home directory");
     path.push(".iceland_current");
+    path
+}
+
+/// Sessions log file: ~/.iceland/sessions.csv
+fn get_sessions_file() -> PathBuf {
+    let mut path = get_iceland_dir();
+    path.push("sessions.csv");
     path
 }
 
@@ -222,6 +255,65 @@ fn init_trading_area(area_path: &Path) -> io::Result<()> {
 }
 
 // ==============================================
+// TIME TRACKING HELPERS
+// ==============================================
+
+fn read_current_area() -> Option<String> {
+    let config = get_config_file();
+    if !config.exists() {
+        return None;
+    }
+    let content = fs::read_to_string(config).ok()?;
+    Some(content.trim().to_string())
+}
+
+fn record_session(old_area: &str) -> io::Result<()> {
+    // For now we record an instant session from now to now.
+    // Later you can store a real start time and reuse it.
+    let now = Local::now();
+    let session = Session {
+        area: old_area.to_string(),
+        start: now,
+        end: now,
+    };
+
+    let sessions_file = get_sessions_file();
+    let file_exists = sessions_file.exists();
+
+    let mut file = File::options()
+        .create(true)
+        .append(true)
+        .open(&sessions_file)?;
+
+    if !file_exists {
+        writeln!(file, "area,start,end")?;
+    }
+
+    writeln!(
+        file,
+        "{},{},{}",
+        session.area,
+        session.start.to_rfc3339(),
+        session.end.to_rfc3339()
+    )?;
+
+    Ok(())
+}
+
+// Optional browser hook; keep simple and configurable later.
+fn launch_browser_for_area(area: &str) -> io::Result<()> {
+    // Example: firefox with profile equal to area name.
+    // You can change command/args per OS or via config later.
+    let _child = Command::new("firefox")
+        .arg("-P")
+        .arg(area)
+        .spawn()?;
+
+    println!("Launched browser for area: {area}");
+    Ok(())
+}
+
+// ==============================================
 // SWITCH COMMAND
 // ==============================================
 
@@ -235,6 +327,16 @@ fn switch_area(area: &str) -> io::Result<()> {
         return Ok(());
     }
 
+    // Time tracking: record a short session for previous area
+    if let Some(old_area) = read_current_area() {
+        if old_area != area {
+            if let Err(e) = record_session(&old_area) {
+                eprintln!("Warning: could not record session for {old_area}: {e}");
+            }
+        }
+    }
+
+    // Write new area
     let config = get_config_file();
     let mut file = File::create(config)?;
     writeln!(file, "{}", area)?;
@@ -242,11 +344,17 @@ fn switch_area(area: &str) -> io::Result<()> {
     println!("Switched to area: {}", area);
     println!("Your area folder: {}", target.display());
 
+    // Show links
     let links_path = target.join("links.txt");
     if links_path.exists() {
         println!("\nUseful links for {}:", area);
         let links = fs::read_to_string(links_path)?;
         println!("{links}");
+    }
+
+    // Optional: launch browser with profile = area
+    if let Err(e) = launch_browser_for_area(area) {
+        eprintln!("Warning: could not launch browser for {area}: {e}");
     }
 
     Ok(())
@@ -272,6 +380,50 @@ fn show_status() -> io::Result<()> {
 
     println!("Current area: {}", current_trimmed);
     println!("Path: {}", area_path.display());
+
+    Ok(())
+}
+
+// ==============================================
+// STATS COMMAND
+// ==============================================
+
+fn show_stats() -> io::Result<()> {
+    let sessions_file = get_sessions_file();
+    if !sessions_file.exists() {
+        println!("No sessions recorded yet.");
+        return Ok(());
+    }
+
+    let content = fs::read_to_string(sessions_file)?;
+    let mut totals: HashMap<String, i64> = HashMap::new();
+
+    for (i, line) in content.lines().enumerate() {
+        if i == 0 {
+            continue; // header
+        }
+        let parts: Vec<_> = line.split(',').collect();
+        if parts.len() != 3 {
+            continue;
+        }
+        let area = parts[0].to_string();
+        let start = DateTime::parse_from_rfc3339(parts[1])
+            .ok()
+            .map(|dt| dt.with_timezone(&Local));
+        let end = DateTime::parse_from_rfc3339(parts[2])
+            .ok()
+            .map(|dt| dt.with_timezone(&Local));
+
+        if let (Some(s), Some(e)) = (start, end) {
+            let secs = (e - s).num_seconds();
+            *totals.entry(area).or_insert(0) += secs;
+        }
+    }
+
+    println!("Time per area (seconds, approximate):");
+    for (area, secs) in totals {
+        println!("- {area}: {secs}s");
+    }
 
     Ok(())
 }
@@ -356,4 +508,21 @@ fn add_note(area: &str, text: &str) -> io::Result<()> {
     println!("Added note to {}/notes/my_notes.txt", area);
 
     Ok(())
+}
+
+// ==============================================
+// TUI COMMAND
+// ==============================================
+
+fn tui_select_area() -> io::Result<()> {
+    let areas: Vec<String> = DEFAULT_AREAS.iter().map(|s| s.to_string()).collect();
+
+    let selection = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select an area")
+        .items(&areas)
+        .default(0)
+        .interact()?;
+
+    let chosen = &areas[selection];
+    switch_area(chosen)
 }
