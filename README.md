@@ -3,7 +3,16 @@
 **From chaos to clarity — one command at a time.**
 
 ---
+## Why I created ICEland
 
+ICEland was born the night I realized my laptop had become a single, noisy room for everything.
+
+University, self-study, gaming, trading, random ideas – all dumped into the same folders, the same browser, the same brain space. I’d open my laptop to learn, and five minutes later I was in a game, a series, or some chart I didn’t plan to check.
+
+I didn’t want more apps, more accounts, or virtual machines. I wanted **clear islands of focus** on one machine.
+
+So I built ICEland: a way to split my digital life into sharp, separate areas – and to have one place to write down every problem that bothered me and how I finally killed it.
+---
 ## 🌍 Overview
 
 ICEland is a **Rust-powered command-line assistant** that helps you separate your digital life into clear, purposeful “areas” such as:
