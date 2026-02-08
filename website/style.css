@@ -1,0 +1,131 @@
+/* ============================= */
+/* ICEland Website Styles         */
+/* ============================= */
+
+/* Reset some defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fefefe;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #0a3d62;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 15px;
+}
+
+/* Code blocks */
+pre, code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* Links */
+a {
+    color: #2980b9;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #1c5980;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+}
+
+/* Containers */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Buttons / download links */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #0a3d62;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #062f4c;
+}
+
+/* Highlight important items */
+.highlight {
+    background-color: #fffbcc;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #0a3d62;
+    color: #fff;
+}
