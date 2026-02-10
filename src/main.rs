@@ -212,6 +212,11 @@ fn init_trading_area(area_path: &Path) -> io::Result<()> {
     fs::create_dir_all(area_path.join("analysis"))?;
     Ok(())
 }
+
+// ==============================================
+// TIME TRACKING
+// ==============================================
+
 // ==============================================
 // TIME TRACKING - AUTOMATIC SESSION LOGGING
 // ==============================================
@@ -219,6 +224,15 @@ fn init_trading_area(area_path: &Path) -> io::Result<()> {
 // Data is stored in ~/.iceland/sessions.csv with format:
 // area,start,end
 // learning,2025-01-01T10:00:00+01:00,2025-01-01T12:00:00+01:00
+
+fn read_current_area() -> Option<String> {
+    let config = get_config_file();
+    if !config.exists() {
+        return None;
+    }
+    let content = fs::read_to_string(config).ok()?;
+    Some(content.trim().to_string())
+}
 
 fn record_session(old_area: &str) -> io::Result<()> {
     let start_file = get_session_start_file();
@@ -248,53 +262,6 @@ fn record_session(old_area: &str) -> io::Result<()> {
     }
 
     // Write session data in RFC3339 format
-    writeln!(
-        file,
-        "{},{},{}",
-        old_area,
-        start.to_rfc3339(),
-        end.to_rfc3339()
-    )?;
-
-    Ok(())
-}
-// ==============================================
-// TIME TRACKING
-// ==============================================
-
-fn read_current_area() -> Option<String> {
-    let config = get_config_file();
-    if !config.exists() {
-        return None;
-    }
-    let content = fs::read_to_string(config).ok()?;
-    Some(content.trim().to_string())
-}
-
-fn record_session(old_area: &str) -> io::Result<()> {
-    let start_file = get_session_start_file();
-    let sessions_file = get_sessions_file();
-
-    let start_str =
-        fs::read_to_string(&start_file).unwrap_or_else(|_| Local::now().to_rfc3339());
-
-    let start = DateTime::parse_from_rfc3339(&start_str)
-        .ok()
-        .map(|dt| dt.with_timezone(&Local))
-        .unwrap_or_else(Local::now);
-
-    let end = Local::now();
-
-    let file_exists = sessions_file.exists();
-    let mut file = File::options()
-        .create(true)
-        .append(true)
-        .open(&sessions_file)?;
-
-    if !file_exists {
-        writeln!(file, "area,start,end")?;
-    }
-
     writeln!(
         file,
         "{},{},{}",
