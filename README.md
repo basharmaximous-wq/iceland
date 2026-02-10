@@ -3,7 +3,10 @@
 
 ## 🌟 Overview
 ICEland is a **Rust-powered CLI tool** that creates isolated digital environments ("areas") on your machine—helping you maintain focus by separating work, learning, gaming, trading, and other contexts. Each area gets its own notes, browser profiles, flashcards, and time tracking—all while keeping your data completely local and private.  
-![Demo](https://screenshots/demo.gif)
+
+Wipe the past, lock your privacy, and dive into total focus.
+
+Destroy clutter, renew your workflow, and stay fully in control
 
 ## 📦 Installation & Setup
 ### Prerequisites
