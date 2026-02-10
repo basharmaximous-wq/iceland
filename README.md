@@ -272,21 +272,6 @@ Time per area (seconds):
 
 ---
 
-## 💻 Installation
-
-### Prerequisites
-
-* Rust installed (`rustup`)
-* `cargo` available in your terminal
-
-### Build from source
-
-```bash
-git clone https://github.com/<your-username>/iceland.git
-cd iceland
-cargo build --release
-```
-
 Binary will be at:
 
 ```
