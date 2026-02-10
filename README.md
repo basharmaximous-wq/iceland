@@ -109,7 +109,7 @@ cat ~/.iceland/learning/notes/my_notes.txt
 iceland --help
 ```
 ---
-##🏠 Data Storage & Privacy
+🏠 Data Storage & Privacy
 Your Digital Home
 All ICEland data lives in your home directory, completely private
 ---
