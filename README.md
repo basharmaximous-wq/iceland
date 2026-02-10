@@ -23,13 +23,17 @@ cd iceland
 cargo build --release
 
 # 3. Create a bin directory if it doesn't exist
-mkdir -p ~/bin  # Or /usr/local/bin for system-wide installation
+mkdir -p ~/bin  
+# Or 
+/usr/local/bin for system-wide installation
 
 # 4. Copy the binary to your PATH
 cp target/release/iceland ~/bin/
 
 # 5. Make sure ~/bin is in your PATH
-echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc  # or ~/.zshrc
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc  
+# or 
+~/.zshrc
 source ~/.bashrc
 
 # 6. Verify installation
