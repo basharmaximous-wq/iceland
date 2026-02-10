@@ -6,7 +6,7 @@ use clap::{Parser, Subcommand};
 use dirs::home_dir;
 use std::collections::HashMap;
 use std::fs::{self, File};
-use std::io::{self, Write};
+use std::io::{self, BufRead, Write};
 use std::path::{Path, PathBuf};
 
 use chrono::{DateTime, Local};
@@ -62,6 +62,9 @@ enum Commands {
 
     Destroy { area: String, target: String },
     Notes { area: String, text: String },
+    
+    /// Study flashcards for a specific area
+    Flashcards { area: String },
 }
 
 // ==============================================
@@ -81,6 +84,7 @@ fn main() {
         Commands::Stop => stop_session(),
         Commands::Destroy { area, target } => destroy_in_area(&area, &target),
         Commands::Notes { area, text } => add_note(&area, &text),
+        Commands::Flashcards { area } => tui_flashcards(&area),
     };
 
     if let Err(e) = result {
@@ -499,14 +503,10 @@ fn tui_select_area() -> io::Result<()> {
     let chosen = &areas[selection];
     switch_area(chosen)
 }
+
 // ==============================================
 // FLASHCARDS TUI
 // ==============================================
-
-use std::io::{self, BufRead};
-use std::fs::File;
-use dialoguer::theme::ColorfulTheme;
-use dialoguer::Select;
 
 fn tui_flashcards(area: &str) -> io::Result<()> {
     let mut area_path = get_iceland_dir();
@@ -561,34 +561,17 @@ fn tui_flashcards(area: &str) -> io::Result<()> {
     }
 
     println!("\n--- Starting flashcards ---");
-    for (front, back) in cards {
-        println!("\nFront: {}", front);
+    for (i, (front, back)) in cards.iter().enumerate() {
+        println!("\nCard {} of {}", i + 1, cards.len());
+        println!("Front: {}", front);
         println!("Press Enter to reveal back...");
         let mut input = String::new();
         io::stdin().read_line(&mut input)?;
         println!("Back: {}", back);
         println!("Press Enter for next card...");
-        input.clear();
         io::stdin().read_line(&mut input)?;
     }
 
     println!("--- Finished deck ---");
     Ok(())
-}
-Flashcards { area: String },
-Commands::Flashcards { area } => tui_flashcards(&area),
-// ==============================================
-// TUI
-// ==============================================
-
-fn tui_select_area() -> io::Result<()> {
-    // ... existing area selection code ...
-}
-
-// ==============================================
-// FLASHCARDS TUI
-// ==============================================
-
-fn tui_flashcards(area: &str) -> io::Result<()> {
-    // ... your flashcards code ...
 }
