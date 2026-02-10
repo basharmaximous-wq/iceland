@@ -16,6 +16,7 @@ source ~/.cargo/env  # Or restart your terminal
 Building ICEland
 # 1. Clone or download the source
 git clone <https://github.com/basharmaximous-wq/iceland.git>
+
 cd iceland
 
 # 2. Build the release binary
