@@ -499,3 +499,96 @@ fn tui_select_area() -> io::Result<()> {
     let chosen = &areas[selection];
     switch_area(chosen)
 }
+// ==============================================
+// FLASHCARDS TUI
+// ==============================================
+
+use std::io::{self, BufRead};
+use std::fs::File;
+use dialoguer::theme::ColorfulTheme;
+use dialoguer::Select;
+
+fn tui_flashcards(area: &str) -> io::Result<()> {
+    let mut area_path = get_iceland_dir();
+    area_path.push(area);
+    area_path.push("flashcards");
+
+    if !area_path.exists() {
+        println!("No flashcards found for area '{}'.", area);
+        return Ok(());
+    }
+
+    // List decks (files in flashcards folder)
+    let mut decks = vec![];
+    for entry in fs::read_dir(&area_path)? {
+        let entry = entry?;
+        let path = entry.path();
+        if path.is_file() {
+            if let Some(name) = path.file_name().and_then(|n| n.to_str()) {
+                decks.push(name.to_string());
+            }
+        }
+    }
+
+    if decks.is_empty() {
+        println!("No flashcard decks available in '{}'.", area_path.display());
+        return Ok(());
+    }
+
+    let selection = Select::with_theme(&ColorfulTheme::default())
+        .with_prompt("Select a flashcard deck")
+        .items(&decks)
+        .default(0)
+        .interact()
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
+
+    let deck_file = area_path.join(&decks[selection]);
+    let file = File::open(deck_file)?;
+    let reader = io::BufReader::new(file);
+
+    // Each line: front|back
+    let mut cards = vec![];
+    for line in reader.lines() {
+        let line = line?;
+        if let Some((front, back)) = line.split_once('|') {
+            cards.push((front.to_string(), back.to_string()));
+        }
+    }
+
+    if cards.is_empty() {
+        println!("Deck is empty.");
+        return Ok(());
+    }
+
+    println!("\n--- Starting flashcards ---");
+    for (front, back) in cards {
+        println!("\nFront: {}", front);
+        println!("Press Enter to reveal back...");
+        let mut input = String::new();
+        io::stdin().read_line(&mut input)?;
+        println!("Back: {}", back);
+        println!("Press Enter for next card...");
+        input.clear();
+        io::stdin().read_line(&mut input)?;
+    }
+
+    println!("--- Finished deck ---");
+    Ok(())
+}
+Flashcards { area: String },
+Commands::Flashcards { area } => tui_flashcards(&area),
+// ==============================================
+// TUI
+// ==============================================
+
+fn tui_select_area() -> io::Result<()> {
+    // ... existing area selection code ...
+}
+
+// ==============================================
+// FLASHCARDS TUI
+// ==============================================
+
+fn tui_flashcards(area: &str) -> io::Result<()> {
+    // ... your flashcards code ...
+}
