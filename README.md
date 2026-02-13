@@ -48,8 +48,9 @@ ICEland helps you:
 Your machine becomes structured, intentional, and distraction-free.
 
 ---
+![📦 Installation & Setup](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
 
-# 📦 Installation & Setup
+
 
 ## Prerequisites
 
@@ -85,7 +86,8 @@ source ~/.bashrc
 # 6. Verify
 iceland --version
 ```
-## 🔧 Troubleshooting
+![🔧 Troubleshooting](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+
 
 Permission issues:
 
@@ -94,8 +96,8 @@ sudo chown -R $USER:$USER .
 cargo build --release --target-dir ./target_local
 ```
 ---
+![🚀 Quick Start](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
 
-## 🚀 Quick Start
 
 Initialize ICEland:
 
@@ -116,11 +118,6 @@ This creates:
 └── trading/
 ```
 
-Start the TUI:
-
-```bash
-iceland tui
-```
 
 Check status:
 
@@ -129,8 +126,9 @@ iceland status
 ```
 
 ---
+![🎮 TUI Navigation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
 
-## 🎮 TUI Navigation
+
 
 After running:
 
@@ -158,8 +156,8 @@ The TUI automatically:
 - Starts time tracking  
 
 ---
+![🛠️ Command Reference](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
 
-## 🛠️ Command Reference
 
 ```bash
 iceland --help
@@ -167,8 +165,8 @@ iceland switch --help
 ```
 
 ---
+![📝 Testing Your Installation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
 
-## 📝 Testing Your Installation
 
 ```bash
 iceland init
@@ -181,8 +179,8 @@ iceland --help
 
 ---
 ---
+![🌐 Suggested Links Per Area](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
 
-## 🌐 Suggested Links Per Area
 
 Each ICEland area contains a `links.txt` file with curated resources
 to match that specific focus environment.
