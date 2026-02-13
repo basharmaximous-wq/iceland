@@ -166,8 +166,14 @@ The TUI automatically:
 - Switches to selected area  
 - Shows useful links  
 - Launches browser profile (if configured)  
-- Starts time tracking  
+- Starts time tracking
 
+
+iceland list – shows all areas (current is marked with ▶).
+
+iceland add-area <name> – creates a brand new area with its own notes, flashcards, and links.
+
+iceland remove-area <name> – deletes an area and all its data (with confirmation
 ---
 ![🛠️ Command Reference](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🛠️Command_Reference&fontColor=000000&fontSize=22)
 
