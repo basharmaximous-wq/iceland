@@ -1,5 +1,6 @@
 ![ICEland Banner](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=120&section=header&text=ICEland%20—%20Your%20Digital%20Focus%20Environment&fontColor=333333&fontSize=28)
 
+
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E0FFFF,100:00BFFF&height=220&section=header&text=ICEland&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Your%20Digital%20Focus%20Environment&descAlignY=60&descAlign=50" />
 </p>
