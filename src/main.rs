@@ -64,7 +64,7 @@ enum DestroyTarget {
 // ==============================================
 
 #[derive(Parser)]
-#[command(name = APP_NAME, about = "Manage focused digital areas with tools, links, notes, and time tracking")]
+#[command(name = APP_NAME, version, about = "Manage focused digital areas with tools, links, notes, and time tracking", long_about = None)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
@@ -72,6 +72,7 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
+
     /// Initialize Iceland with default areas
     Init,
 
