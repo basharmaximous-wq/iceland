@@ -169,6 +169,92 @@ iceland --help
 ```
 
 ---
+---
+
+## 🌐 Suggested Links Per Area
+
+Each ICEland area contains a `links.txt` file with curated resources
+to match that specific focus environment.
+
+These links are automatically shown when switching areas
+and help you enter the right mindset instantly.
+
+### 🎮 Gaming Area
+
+Example links you might include:
+
+- 🕹️ Addictive browser games  
+- 🧩 Quick mini-games  
+- 🍿 "Snack" games for short breaks  
+
+The goal: controlled fun without drifting into chaos.
+
+---
+
+### 📈 Trading Area
+
+Example curated resources:
+
+- Forex news and economic calendar from **ForexFactory**  
+- Market analysis tools  
+- Currency strength dashboards  
+
+This keeps you focused only on trading-related information.
+
+---
+
+### 📚 Learning Area
+
+Example resources:
+
+- 🎓 Your university portal (e.g., Primus)  
+- 📖 Online course platforms  
+- 📑 Study reference websites  
+- 🧠 Research databases  
+
+Everything in one isolated learning zone.
+
+---
+
+### 💼 Work Area
+
+- Internal dashboards  
+- Project management tools  
+- Documentation systems  
+- Company portals  
+
+Zero distractions.
+
+---
+
+### ➗ Math Area
+
+- Symbolic calculators  
+- Formula references  
+- Math problem solvers  
+- Online textbooks  
+
+---
+
+### ✈️ Traveling Area
+
+- Flight comparison tools  
+- Maps  
+- Booking websites  
+- Travel planning tools  
+
+---
+
+### 🔒 Why This Matters
+
+By separating suggested links per area, ICEland:
+
+- Reduces mental context switching  
+- Prevents unrelated browsing  
+- Creates intentional digital environments  
+- Reinforces discipline through structure  
+
+Your browser becomes aligned with your purpose.
 
 ## 📚 Flashcards
 
