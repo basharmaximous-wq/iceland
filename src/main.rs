@@ -696,7 +696,7 @@ fn tui_select_area() -> Result<()> {
 
 fn main() -> Result<()> {
     let cli = Cli::parse();
-      match cli.command {
+    match cli.command {
         Commands::Init => init_iceland(),
         Commands::List => list_areas(),
         Commands::Switch { area } => switch_area(&area),
