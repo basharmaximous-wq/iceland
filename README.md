@@ -83,8 +83,6 @@ cp target/release/iceland ~/bin/
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-# 6. Verify
-iceland --version
 ```
 ![🔧 Troubleshooting](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🔧Troubleshooting&fontColor=000000&fontSize=22)
 
