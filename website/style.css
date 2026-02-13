@@ -129,3 +129,59 @@ th {
     background-color: #0a3d62;
     color: #fff;
 }
+/* Target Users Section Styles */
+#target-users {
+    padding: 20px 0 40px;
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.user-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(10, 61, 98, 0.05);
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(10, 61, 98, 0.1);
+    border-color: #0a3d62;
+}
+
+.user-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.user-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #0a3d62;
+    font-size: 1.3em;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.user-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-size: 0.95em;
+}
+
+@media (max-width: 768px) {
+    .users-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
