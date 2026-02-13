@@ -70,7 +70,7 @@ cargo build --release
 
 # 3. Create bin directory (if needed)
 mkdir -p ~/bin
-#if you faced a error check the troubleshooting below 👇🏽 
+#if you faced an error check the troubleshooting below 👇🏽 
 # 4. Copy binary
 cp target/release/iceland ~/bin/
 
