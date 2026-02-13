@@ -1,4 +1,3 @@
-![ICEland Banner](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=120&section=header&text=ICEland%20—%20Your%20Digital%20Focus%20Environment&fontColor=333333&fontSize=28)
 
 
 <p align="center">
