@@ -188,7 +188,7 @@ to match that specific focus environment.
 These links are automatically shown when switching areas
 and help you enter the right mindset instantly.
 
-### 🎮 Gaming Area
+![Section Beige](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=60&section=header&text=%F0%9F%8E%AE%20Gaming%20Area&fontColor=333333&fontSize=22)
 
 Example links you might include:
 
@@ -200,7 +200,7 @@ The goal: controlled fun without drifting into chaos.
 
 ---
 
-### 📈 Trading Area
+![Section Beige](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=60&section=header&text=%F0%9F%93%88%20Trading%20Area&fontColor=333333&fontSize=22)
 
 Example curated resources:
 
@@ -212,7 +212,7 @@ This keeps you focused only on trading-related information.
 
 ---
 
-### 📚 Learning Area
+![Section Beige](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=60&section=header&text=%F0%9F%93%9A%20Learning%20Area&fontColor=333333&fontSize=22)
 
 Example resources:
 
@@ -225,7 +225,7 @@ Everything in one isolated learning zone.
 
 ---
 
-### 💼 Work Area
+![Section Beige](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=60&section=header&text=%F0%9F%92%BC%20Work%20Area&fontColor=333333&fontSize=22)
 
 - Internal dashboards  
 - Project management tools  
@@ -235,8 +235,7 @@ Everything in one isolated learning zone.
 Zero distractions.
 
 ---
-
-### ➗ Math Area
+![Section Beige](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=60&section=header&text=%E2%9E%97%20Math%20Area&fontColor=333333&fontSize=22)
 
 - Symbolic calculators  
 - Formula references  
@@ -245,7 +244,7 @@ Zero distractions.
 
 ---
 
-### ✈️ Traveling Area
+![Section Beige](https://capsule-render.vercel.app/api?type=rect&color=F5F5DC&height=60&section=header&text=%E2%9C%88%EF%B8%8F%20Traveling%20Area&fontColor=333333&fontSize=22)
 
 - Flight comparison tools  
 - Maps  
@@ -265,7 +264,7 @@ By separating suggested links per area, ICEland:
 
 Your browser becomes aligned with your purpose.
 ![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%9A%20Flashcards&fontColor=000000&fontSize=22)
-## 📚 
+
 
 Create a deck:
 
@@ -289,8 +288,7 @@ iceland flashcards math
 ```
 
 ---
-
-## ⏱️ Time Tracking
+![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%E2%8F%B1%EF%B8%8F%20Time%20Tracking&fontColor=000000&fontSize=22)
 
 Sessions are saved in:
 
@@ -313,7 +311,7 @@ iceland stop
 
 ---
 
-## 🖥️ Browser Integration
+![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%96%A5%EF%B8%8F%20Browser%20Integration&fontColor=000000&fontSize=22)
 
 Example:
 
@@ -336,7 +334,7 @@ echo $PATH
 
 ---
 
-## 🏠 Data & Privacy
+![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%8F%A0%20Data%20%26%20Privacy&fontColor=000000&fontSize=22)
 
 All ICEland data lives locally:
 
@@ -348,7 +346,7 @@ No servers. No accounts. No tracking.
 
 ---
 
-## 📄 License
+![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%84%20License&fontColor=000000&fontSize=22)
 
 Built for educational purposes and personal productivity.
 
