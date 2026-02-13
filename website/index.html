@@ -406,43 +406,72 @@
         </section>
         
         <!-- Features Section -->
-        <section class="section" style="animation-delay: 0.3s;">
-            <h2 class="section-title">Powerful Features</h2>
-            
-            <div class="code-block">
-                <code>
-                    <span class="code-comment">// Time tracking in Rust</span><br>
-                    <span class="code-keyword">struct</span> <span class="code-function">Session</span> {<br>
-                    &nbsp;&nbsp;area: <span class="code-function">String</span>,<br>
-                    &nbsp;&nbsp;start: DateTime&lt;Local&gt;,<br>
-                    &nbsp;&nbsp;end: DateTime&lt;Local&gt;<br>
-                    }<br><br>
-                    
-                    <span class="code-comment">// Automatic session logging</span><br>
-                    sessions.csv:<br>
-                    area,start,end<br>
-                    learning,2025-01-01T10:00:00+01:00,2025-01-01T12:00:00+01:00
-                </code>
-            </div>
-            
-            <div class="cards-grid">
-                <div class="card">
-                    <h3 class="card-title">TUI Interface</h3>
-                    <p>Navigate areas with arrow keys using <code>iceland tui</code>. No need to remember commands.</p>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title">Browser Integration</h3>
-                    <p>Auto-launch Firefox with separate profiles per area. Keep cookies and history separated.</p>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title">Local & Private</h3>
-                    <p>All data stays on your machine. No accounts, no tracking, no cloud dependencies.</p>
-                </div>
-            </div>
-        </section>
-        
+       <!-- Features Section -->
+<section class="section" style="animation-delay: 0.3s;">
+    <h2 class="section-title">✨ Features</h2>
+    
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-icon">🗂️</div>
+            <h3 class="card-title">Area Isolation</h3>
+            <p>Separate digital environments for work, learning, gaming, trading, travel, math</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🌐</div>
+            <h3 class="card-title">Browser Profiles</h3>
+            <p>Launch Firefox profiles per area (<code>firefox -P {area}</code>)</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📝</div>
+            <h3 class="card-title">Dedicated Notes</h3>
+            <p>Append notes to <code>area/notes/my_notes.txt</code></p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">Flashcards</h3>
+            <p>Study decks in <code>area/flashcards/*.txt</code> (<code>front\|back</code>)</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⏱️</div>
+            <h3 class="card-title">Time Tracking</h3>
+            <p>Sessions logged to <code>sessions.csv</code>, stats with <code>iceland stats</code></p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎮</div>
+            <h3 class="card-title">TUI Selector</h3>
+            <p>Interactive switching with <code>iceland tui</code></p>
+        </div>
+    </div>
+</section>
+
+<!-- Commands Section -->
+<section class="section" style="animation-delay: 0.4s;">
+    <h2 class="section-title">🛠️ Commands</h2>
+    
+    <div class="code-block">
+        <table style="width: 100%; border-collapse: collapse; font-family: 'Fira Code', monospace; font-size: 0.95rem;">
+            <thead>
+                <tr style="background: rgba(14, 165, 233, 0.1);">
+                    <th style="padding: 1rem 0.5rem 0.5rem 1rem; text-align: left; border-bottom: 1px solid var(--border);">Command</th>
+                    <th style="padding: 1rem 0.5rem 0.5rem 1rem; text-align: left; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>iceland init</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Create default areas + config</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>iceland list</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Show areas (▶ marks current)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>iceland tui</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Interactive area selector</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>iceland switch &lt;area&gt;</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Switch + start session + links</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>iceland stats</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Time spent per area (table)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>iceland notes &lt;area&gt; "text"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Append note</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>iceland flashcards &lt;area&gt;</code></td><td style="padding: 0.75rem 1rem;">Study flashcards</td></tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">
+            <strong>Full help:</strong> <code>iceland --help</code>
+        </div>
+    </div>
+</section>
+
         <!-- CTA Section -->
         <section class="cta-section" style="animation-delay: 0.4s;">
             <h2 class="section-title">Ready to Declutter Your Digital Life?</h2>
@@ -607,3 +636,4 @@
     </script>
 </body>
 </html>
+
