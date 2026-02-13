@@ -264,8 +264,8 @@ By separating suggested links per area, ICEland:
 - Reinforces discipline through structure  
 
 Your browser becomes aligned with your purpose.
-
-## 📚 Flashcards
+![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%9A%20Flashcards&fontColor=000000&fontSize=22)
+## 📚 
 
 Create a deck:
 
