@@ -636,6 +636,10 @@ fn remove_area(name: &str) -> Result<()> {
 // HISTORY
 // ==============================================
 
+// ==============================================
+// HISTORY
+// ==============================================
+
 fn show_history(area_filter: Option<String>) -> Result<()> {
     let file = sessions_file();
     if !file.exists() {
@@ -644,7 +648,29 @@ fn show_history(area_filter: Option<String>) -> Result<()> {
     }
 
     let mut rdr = csv::Reader::from_path(file)?;
-    let mut sessions: Vec<Session> = rdr.deserialize().collect::<Result<_, _>>()?;
+    let mut sessions = Vec::new();
+    
+    // Manually read each record instead of deserializing
+    for result in rdr.records() {
+        let record = result?;
+        if record.len() >= 3 {
+            let area = record[0].to_string();
+            let start_str = record[1].to_string();
+            let end_str = record[2].to_string();
+            
+            // Parse the datetime strings
+            if let (Ok(start), Ok(end)) = (
+                DateTime::parse_from_rfc3339(&start_str),
+                DateTime::parse_from_rfc3339(&end_str)
+            ) {
+                sessions.push(Session {
+                    area,
+                    start: start.with_timezone(&Local),
+                    end: end.with_timezone(&Local),
+                });
+            }
+        }
+    }
 
     // Filter by area if requested
     if let Some(area) = area_filter {
@@ -656,17 +682,21 @@ fn show_history(area_filter: Option<String>) -> Result<()> {
         return Ok(());
     }
 
-    println!("\n{:<12} | {:<25} | {:<25} | Duration", "Area", "Start", "End",);
-    println!("{:-<12}-+-{:-<25}-+-{:-<25}-+-{:-<8}", "", "", "", "");
+    // Sort by start time (most recent first)
+    sessions.sort_by(|a, b| b.start.cmp(&a.start));
+
+    println!("\n{:<12} | {:<20} | {:<20} | Duration", "Area", "Start", "End");
+    println!("{:-<12}-+-{:-<20}-+-{:-<20}-+-{:-<8}", "", "", "", "");
 
     for s in sessions {
-        let start = s.start.format("%Y-%m-%d %H:%M:%S");
-        let end = s.end.format("%Y-%m-%d %H:%M:%S");
+        let start = s.start.format("%Y-%m-%d %H:%M");
+        let end = s.end.format("%Y-%m-%d %H:%M");
         let duration = s.end - s.start;
         let hours = duration.num_hours();
         let minutes = duration.num_minutes() % 60;
+        
         println!(
-            "{:<12} | {} | {} | {:2}:{:02}",
+            "{:<12} | {:>20} | {:>20} | {:2}:{:02}",
             s.area, start, end, hours, minutes
         );
     }
