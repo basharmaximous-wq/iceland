@@ -480,44 +480,29 @@ Prefer local-only tools with no accounts, cloud sync, or telemetry, but still wa
 
 ## License
 
-<div align="center">
-  
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&color=0a3d62&labelColor=0a3d62&logo=opensourceinitiative&logoColor=white)](https://choosealicense.com/licenses/mit/)
-  
-<p style="padding: 12px 30px; background: linear-gradient(135deg, #0a3d62, #0ea5e9); border-radius: 50px; box-shadow: 0 0 20px #0a3d62, 0 0 40px #0ea5e9; color: white; font-weight: bold; font-size: 1.2em; display: inline-block; border: 1px solid rgba(255,255,255,0.3);">
 
-</p>
-
-</div>
-
-<br>
+---
 
 ## Built With
 
-<div align="center">
-
-  
-<p style="padding: 12px 40px; background: linear-gradient(135deg, #8b5cf6, #0ea5e9); border-radius: 50px; box-shadow: 0 0 20px #8b5cf6, 0 0 40px #0ea5e9; color: white; font-weight: bold; font-size: 1.2em; display: inline-block; border: 1px solid rgba(255,255,255,0.3);">
-
-  🦀 RUST 🦀
-
-  
+<p align="center">
+  <a href="https://www.rust-lang.org/">
+    <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
+  </a>
 </p>
 
+| Crate | Description | Links |
+|-------|-------------|-------|
+| [clap](https://github.com/clap-rs/clap) | CLI argument parsing | [![Docs](https://img.shields.io/badge/docs.rs-clap-0ea5e9?style=flat-square)](https://docs.rs/clap) |
+| [serde](https://github.com/serde-rs/serde) | Serialization framework | [![Docs](https://img.shields.io/badge/docs.rs-serde-0a3d62?style=flat-square)](https://docs.rs/serde) |
+| [chrono](https://github.com/chronotope/chrono) | Date/time handling | [![Docs](https://img.shields.io/badge/docs.rs-chrono-0a3d62?style=flat-square)](https://docs.rs/chrono) |
+| [dialoguer](https://github.com/mitsuhiko/dialoguer) | Interactive TUI | [![Docs](https://img.shields.io/badge/docs.rs-dialoguer-10b981?style=flat-square)](https://docs.rs/dialoguer) |
+| [toml](https://github.com/alexcrichton/toml-rs) | TOML configuration | [![Docs](https://img.shields.io/badge/docs.rs-toml-0ea5e9?style=flat-square)](https://docs.rs/toml) |
+| [csv](https://github.com/BurntSushi/rust-csv) | CSV handling | [![Docs](https://img.shields.io/badge/docs.rs-csv-10b981?style=flat-square)](https://docs.rs/csv) |
+| [anyhow](https://github.com/dtolnay/anyhow) | Error handling | [![Docs](https://img.shields.io/badge/docs.rs-anyhow-0a3d62?style=flat-square)](https://docs.rs/anyhow) |
 
-<br>
-<br>
-
-
-| Crate | Description |
-|-------|-------------|
-| [![clap](https://img.shields.io/badge/clap-⚡-blue?style=flat-square&color=0ea5e9)](https://github.com/clap-rs/clap) | CLI argument parsing |
-| [![serde](https://img.shields.io/badge/serde-⚡-blue?style=flat-square&color=8b5cf6)](https://serde.rs/) | Serialization |
-| [![chrono](https://img.shields.io/badge/chrono-⚡-blue?style=flat-square&color=0a3d62)](https://github.com/chronotope/chrono) | Date/time handling |
-| [![dialoguer](https://img.shields.io/badge/dialoguer-⚡-blue?style=flat-square&color=10b981)](https://github.com/mitsuhiko/dialoguer) | Interactive TUI |
-
-</div>
-
+---
 ---
 
 **Separate your worlds. Sharpen your focus.**  
