@@ -54,38 +54,6 @@ Install Rust (if not already installed):
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source ~/.cargo/env
-# ❄️ ICEland — Your Digital Focus Environment
-
-**From chaos to clarity — one command at a time.**  
-Separate your worlds. Sharpen your focus.
-
----
-
-## 🌟 Overview
-
-ICEland is a **Rust-powered CLI tool** that creates isolated digital environments ("areas") on your machine.
-
-Each area gets its own:
-
-- 📝 Notes  
-- 🌐 Browser profiles  
-- 🧠 Flashcards  
-- ⏱️ Time tracking  
-
-All data stays **100% local**.  
-No telemetry. No cloud. No tracking.
-
----
-
-## 📦 Installation
-
-### Prerequisites
-
-Install Rust (if needed):
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source ~/.cargo/env
 ```
 
 ---
