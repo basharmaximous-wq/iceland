@@ -5,221 +5,298 @@
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?color=00F5FF&size=22&center=true&vCenter=true&width=700&lines=From+chaos+to+clarity+—+one+command+at+a+time.;Separate+your+worlds.;Sharpen+your+focus.;Destroy+clutter.+Renew+workflow.+Stay+in+control." />
 </p>
-**From chaos to clarity — one command at a time. Separate your worlds. Sharpen your focus.**
 
-## 🌟 Overview
-ICEland is a **Rust-powered CLI tool** that creates isolated digital environments ("areas") on your machine—helping you maintain focus by separating work, learning, gaming, trading, and other contexts. Each area gets its own notes, browser profiles, flashcards, and time tracking—all while keeping your data completely local and private.  
+<p align="center">
+  <img src="https://img.shields.io/badge/Built%20With-Rust-black?style=for-the-badge&logo=rust&logoColor=orange" />
+  <img src="https://img.shields.io/badge/Privacy-100%25%20Local-00F5FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Interface-CLI-0066FF?style=for-the-badge" />
+</p>
 
-Wipe the past, lock your privacy, and dive into total focus.
+---
 
-Destroy clutter, renew your workflow, and stay fully in control
+# ❄️ ICEland — Your Digital Focus Environment
 
-## 📦 Installation & Setup
-### Prerequisites
-- **Rust toolchain** (install via `rustup` if you haven't already):
+ICEland is a **Rust-powered CLI tool** that creates isolated digital environments ("areas") on your machine — helping you maintain deep focus by separating work, learning, gaming, trading, and other contexts.
+
+Each area gets:
+- 📝 Dedicated notes  
+- 🌐 Separate browser profiles  
+- 🧠 Flashcard decks  
+- ⏱️ Automatic time tracking  
+
+All data stays **100% local**.  
+No telemetry. No cloud. No tracking.
+
+> Wipe the past. Lock your privacy. Dive into total focus.
+
+---
+
+# 🌟 Overview
+
+ICEland helps you:
+
+- Separate your digital worlds
+- Avoid mental context switching
+- Track time spent in each focus mode
+- Organize notes and flashcards per environment
+- Maintain total privacy
+
+Your machine becomes structured, intentional, and distraction-free.
+
+---
+
+# 📦 Installation & Setup
+
+## Prerequisites
+
+Install Rust (if not already installed):
+
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source ~/.cargo/env  # Or restart your terminal
-```
-## Cargo (comes with Rust)
-Building ICEland
-# 1. Clone or download the source
-git clone <https://github.com/basharmaximous-wq/iceland.git>
+source ~/.cargo/env
+# ❄️ ICEland — Your Digital Focus Environment
 
+**From chaos to clarity — one command at a time.**  
+Separate your worlds. Sharpen your focus.
+
+---
+
+## 🌟 Overview
+
+ICEland is a **Rust-powered CLI tool** that creates isolated digital environments ("areas") on your machine.
+
+Each area gets its own:
+
+- 📝 Notes  
+- 🌐 Browser profiles  
+- 🧠 Flashcards  
+- ⏱️ Time tracking  
+
+All data stays **100% local**.  
+No telemetry. No cloud. No tracking.
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+Install Rust (if needed):
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.cargo/env
+```
+
+---
+
+### Build ICEland
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/basharmaximous-wq/iceland.git
 cd iceland
 
-# 2. Build the release binary
+# 2. Build release binary
 cargo build --release
 
-# 3. Create a bin directory if it doesn't exist
-mkdir -p ~/bin  
-# Or 
-/usr/local/bin for system-wide installation
+# 3. Create bin directory (if needed)
+mkdir -p ~/bin
 
-# 4. Copy the binary to your PATH
+# 4. Copy binary
 cp target/release/iceland ~/bin/
 
-# 5. Make sure ~/bin is in your PATH
-echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc  
-# or 
-~/.zshrc
+# 5. Add to PATH
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-# 6. Verify installation
+# 6. Verify
 iceland --version
-## 🚀 Quick Start (First-Time Setup)
-Initialize ICEland (creates all area directories):
 ```
+
+---
+
+## 🚀 Quick Start
+
+Initialize ICEland:
+
+```bash
 iceland init
 ```
+
 This creates:
-~/.iceland/ (your main data directory)
-Six default areas: work, math, learning, gaming, traveling, trading
-Each with structured folders and links.txt
----
-Start with the TUI (recommended for beginners):
----
+
+```text
+~/.iceland/
+├── sessions.csv
+├── work/
+├── math/
+├── learning/
+├── gaming/
+├── traveling/
+└── trading/
 ```
+
+Start the TUI:
+
+```bash
 iceland tui
 ```
----
-Check your status at any time:
----
-```
+
+Check status:
+
+```bash
 iceland status
 ```
-## 🎮 Getting Started with TUI (Text User Interface)
-After running iceland init:
-```
+
+---
+
+## 🎮 TUI Navigation
+
+After running:
+
+```bash
 iceland tui
 ```
-You'll see:
-```
+
+You’ll see:
+
+```text
 Select an area › work   math   learning   gaming   traveling   trading
 ```
+
 Navigation:
-↑/↓ arrow keys to move
 
-Press Enter to select
-
-Press Ctrl+C to exit
+- ↑ / ↓ → Move  
+- Enter → Select  
+- Ctrl + C → Exit  
 
 The TUI automatically:
 
-Switches to your chosen area
+- Switches to selected area  
+- Shows useful links  
+- Launches browser profile (if configured)  
+- Starts time tracking  
 
-Shows useful links from that area's links.txt
-
-Launches a dedicated browser profile (if configured)
-
-Starts time tracking for that session
 ---
+
 ## 🛠️ Command Reference
-Get help anytime:
----
-##📝 Testing Your Installation
+
+```bash
+iceland --help
+iceland switch --help
 ```
-# 1. Initialize
+
+---
+
+## 📝 Testing Your Installation
+
+```bash
 iceland init
-
-# 2. Switch to learning area
-iceland switch learning  # Should show: "Switched to area: learning" and display links
-
-# 3. Check status
-iceland status  # Shows: Current area: learning, Path: ~/.iceland/learning
-
-# 4. Add a test note
+iceland switch learning
+iceland status
 iceland notes learning "Test note from installation"
-
-# 5. View the note
 cat ~/.iceland/learning/notes/my_notes.txt
-
-# 6. Check available commands
 iceland --help
 ```
+
 ---
-🏠 Data Storage & Privacy
-Your Digital Home
-All ICEland data lives in your home directory, completely private
----
-```
-~/.iceland/           # Main directory
-├── sessions.csv      # Time tracking data
-├── work/             # Work area
-├── math/             # Math area
-├── learning/         # Learning area
-├── gaming/           # Gaming area
-├── traveling/        # Traveling area
-└── trading/          # Trading area
-```
-Area Structure
-Each area contains:
-```
-math/
-├── notes/              # Your private notes (append-only)
-│   └── my_notes.txt
-├── flashcards/         # Flashcard decks (*.txt files)
-├── browser_firefox/    # Firefox profile for math
-└── links.txt           # Useful math websites
-```
-Notes are stored locally—they never leave your computer.
----
-## 📚 Using Flashcards
-Creating Flashcard Decks
-```
+
+## 📚 Flashcards
+
+Create a deck:
+
+```bash
 cd ~/.iceland/math/flashcards/
 nano algebra_basics.txt
 ```
-Add cards in format front|back:
-```
+
+Use this format:
+
+```text
 What is 2+2?|4
 Derivative of x²|2x
 Integral of 2x|x² + C
 ```
-Save (Ctrl+O) and exit (Ctrl+X).
-Studying Flashcards
-```
+
+Study:
+
+```bash
 iceland flashcards math
 ```
+
 ---
-Select your deck
-Press Enter to reveal answers
-Press Enter again for next card
----
-Viewing Decks
----
-```
-ls ~/.iceland/math/flashcards/   # See all decks
-cat ~/.iceland/math/flashcards/algebra_basics.txt  # View a specific deck
-```
+
 ## ⏱️ Time Tracking
-ICEland tracks time when switching areas. Data is saved in ~/.iceland/sessions.csv.
-View Stats
+
+Sessions are saved in:
+
+```text
+~/.iceland/sessions.csv
 ```
+
+View stats:
+
+```bash
 iceland stats
 ```
-Example
+
+Manual control:
+
+```bash
+iceland start
+iceland stop
 ```
-+------------+------------------+
-| Area       | Time (seconds)   |
-+------------+------------------+
-| learning   |           7200s  |
-| work       |           5400s  |
-| math       |           3600s  |
-+------------+------------------+
-```
-Manual Session Control
-```
-iceland start  # Start timer
-iceland stop   # Stop & log session
-```
+
+---
+
 ## 🖥️ Browser Integration
-```
-# Switch to 'math' area
+
+Example:
+
+```bash
 firefox -P math &
 ```
+
+---
+
 ## 🔧 Troubleshooting
-Permission Denied After Build
-```
+
+Permission issues:
+
+```bash
 sudo chown -R $USER:$USER .
 cargo build --release --target-dir ./target_local
 ```
-Binary Not Found After Copy
-```
+
+Binary not found:
+
+```bash
 ls -la ~/bin/
 chmod +x ~/bin/iceland
 which iceland
 echo $PATH
 ```
+
+---
+
+## 🏠 Data & Privacy
+
+All ICEland data lives locally:
+
+```text
+~/.iceland/
+```
+
+No servers. No accounts. No tracking.
+
+---
+
 ## 📄 License
+
 Built for educational purposes and personal productivity.
-All data stays on your machine—no tracking, no telemetry.
-## 🆘 Need Help?
-```
-iceland --help
-iceland switch --help
-```
+
 ---
-Separate your worlds. Sharpen your focus. 
-ICEland: From chaos to clarity — one command at a time.
----
+
+**Separate your worlds. Sharpen your focus.**  
+ICEland — From chaos to clarity.
