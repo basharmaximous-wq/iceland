@@ -81,7 +81,14 @@ source ~/.bashrc
 # 6. Verify
 iceland --version
 ```
+## 🔧 Troubleshooting
 
+Permission issues:
+
+```bash
+sudo chown -R $USER:$USER .
+cargo build --release --target-dir ./target_local
+```
 ---
 
 ## 🚀 Quick Start
@@ -314,14 +321,7 @@ firefox -P math &
 
 ---
 
-## 🔧 Troubleshooting
 
-Permission issues:
-
-```bash
-sudo chown -R $USER:$USER .
-cargo build --release --target-dir ./target_local
-```
 
 Binary not found:
 
