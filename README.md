@@ -480,27 +480,25 @@ Prefer local-only tools with no accounts, cloud sync, or telemetry, but still wa
 
 ## License
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&color=0a3d62&labelColor=0a3d62&logo=opensourceinitiative&logoColor=white)](https://choosealicense.com/licenses/mit/)
+MIT License - Copyright (c) 2026 bashar maximous
+
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 
 ---
 
 ## Built With
 
-<p align="center">
-  <a href="https://www.rust-lang.org/">
-    <img src="https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
-  </a>
-</p>
+**Rust** - The core programming language
 
-| Crate | Description | Links |
-|-------|-------------|-------|
-| [clap](https://github.com/clap-rs/clap) | CLI argument parsing | [![Docs](https://img.shields.io/badge/docs.rs-clap-0ea5e9?style=flat-square)](https://docs.rs/clap) |
-| [serde](https://github.com/serde-rs/serde) | Serialization framework | [![Docs](https://img.shields.io/badge/docs.rs-serde-0a3d62?style=flat-square)](https://docs.rs/serde) |
-| [chrono](https://github.com/chronotope/chrono) | Date/time handling | [![Docs](https://img.shields.io/badge/docs.rs-chrono-0a3d62?style=flat-square)](https://docs.rs/chrono) |
-| [dialoguer](https://github.com/mitsuhiko/dialoguer) | Interactive TUI | [![Docs](https://img.shields.io/badge/docs.rs-dialoguer-10b981?style=flat-square)](https://docs.rs/dialoguer) |
-| [toml](https://github.com/alexcrichton/toml-rs) | TOML configuration | [![Docs](https://img.shields.io/badge/docs.rs-toml-0ea5e9?style=flat-square)](https://docs.rs/toml) |
-| [csv](https://github.com/BurntSushi/rust-csv) | CSV handling | [![Docs](https://img.shields.io/badge/docs.rs-csv-10b981?style=flat-square)](https://docs.rs/csv) |
-| [anyhow](https://github.com/dtolnay/anyhow) | Error handling | [![Docs](https://img.shields.io/badge/docs.rs-anyhow-0a3d62?style=flat-square)](https://docs.rs/anyhow) |
+### Crates Used
+
+- **clap** - CLI argument parsing ([GitHub](https://github.com/clap-rs/clap) | [Docs](https://docs.rs/clap))
+- **serde** - Serialization framework ([GitHub](https://github.com/serde-rs/serde) | [Docs](https://docs.rs/serde))
+- **chrono** - Date and time handling ([GitHub](https://github.com/chronotope/chrono) | [Docs](https://docs.rs/chrono))
+- **dialoguer** - Interactive TUI components ([GitHub](https://github.com/mitsuhiko/dialoguer) | [Docs](https://docs.rs/dialoguer))
+- **toml** - TOML configuration ([GitHub](https://github.com/alexcrichton/toml-rs) | [Docs](https://docs.rs/toml))
+- **csv** - CSV file handling ([GitHub](https://github.com/BurntSushi/rust-csv) | [Docs](https://docs.rs/csv))
+- **anyhow** - Error handling ([GitHub](https://github.com/dtolnay/anyhow) | [Docs](https://docs.rs/anyhow))
 
 ---
 ---
