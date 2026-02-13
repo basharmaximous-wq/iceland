@@ -1,11 +1,11 @@
 [package]
 name = "iceland"
 version = "0.1.0"
-edition = "2021"  # or "2018" if you prefer
+edition = "2021"
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
-chrono = "0.4"
+chrono = { version = "0.4", features = ["serde"] }  # ← ADD "serde" HERE
 dialoguer = "0.11"
 serde = { version = "1.0", features = ["derive"] }
 csv = "1.3"
