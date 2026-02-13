@@ -178,10 +178,36 @@ iceland remove-area <name> – deletes an area and all its data (with confirmati
 ![🛠️ Command Reference](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🛠️Command_Reference&fontColor=000000&fontSize=22)
 
 
-```bash
-iceland --help
-iceland switch --help
-```
+| Command | Description |
+|---------|-------------|
+| `iceland init` | Create default areas + config |
+| `iceland list` | Show areas (▶ marks current) |
+| `iceland tui` | Interactive area selector |
+| `iceland switch <area>` | Switch area + start session + show links |
+| `iceland status` | Current area + session state |
+| `iceland stats` | Time spent per area (table) |
+| `iceland start/stop` | Manual session timer |
+| `iceland notes <area> "text"` | Append note |
+| `iceland flashcards <area>` | Study flashcards |
+| `iceland destroy <area> browser` | Reset browser profile |
+| `iceland destroy <area> notes` | Clear notes |
+| `iceland add-area <name>` | New custom area |
+| `iceland remove-area <name>` | Delete area + data |
+| `iceland history [area]` | Session log |
+
+**Full help:** `iceland --help`
+
+## ✨ Features
+
+- **🗂️ Area Isolation** – Separate digital environments for work, learning, gaming, trading, travel, math
+- **🌐 Browser Profiles** – Launch Firefox profiles per area (`firefox -P {area}`)
+- **📝 Dedicated Notes** – Append notes to `area/notes/my_notes.txt`
+- **🧠 Flashcards** – Study decks in `area/flashcards/*.txt` (format: `front|back`)
+- **⏱️ Auto Time Tracking** – Sessions recorded to `sessions.csv`, stats with `iceland stats`
+- **🎮 TUI Selector** – Interactive area switching with `iceland tui`
+- **♻️ Reset Commands** – `destroy <area> browser|notes` clears clutter instantly
+- **⚡ 100% Local** – No cloud, no telemetry, all data in `~/.iceland/`
+- **🔧 Extensible** – Add custom areas with `add-area <name>`
 
 ---
 ![📝 Testing Your Installation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=📝Testing&fontColor=000000&fontSize=22)
