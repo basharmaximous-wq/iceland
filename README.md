@@ -48,7 +48,7 @@ ICEland helps you:
 Your machine becomes structured, intentional, and distraction-free.
 
 ---
-![📦 Installation & Setup](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![📦 Installation & Setup](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=📦Installation&Setup&fontColor=000000&fontSize=22)
 
 
 
@@ -86,7 +86,7 @@ source ~/.bashrc
 # 6. Verify
 iceland --version
 ```
-![🔧 Troubleshooting](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![🔧 Troubleshooting](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🔧Troubleshooting&fontColor=000000&fontSize=22)
 
 
 Permission issues:
@@ -96,7 +96,7 @@ sudo chown -R $USER:$USER .
 cargo build --release --target-dir ./target_local
 ```
 ---
-![🚀 Quick Start](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![🚀 Quick Start](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🚀Quick_Start&fontColor=000000&fontSize=22)
 
 
 Initialize ICEland:
@@ -126,7 +126,7 @@ iceland status
 ```
 
 ---
-![🎮 TUI Navigation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![🎮 TUI Navigation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🎮TUInavigation&fontColor=000000&fontSize=22)
 
 
 
@@ -156,7 +156,7 @@ The TUI automatically:
 - Starts time tracking  
 
 ---
-![🛠️ Command Reference](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![🛠️ Command Reference](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🛠️Command_Reference&fontColor=000000&fontSize=22)
 
 
 ```bash
@@ -165,7 +165,7 @@ iceland switch --help
 ```
 
 ---
-![📝 Testing Your Installation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![📝 Testing Your Installation](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=📝Testing&fontColor=000000&fontSize=22)
 
 
 ```bash
@@ -179,7 +179,7 @@ iceland --help
 
 ---
 ---
-![🌐 Suggested Links Per Area](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![🌐 Suggested Links Per Area](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🌐Suggested_Links_Per_Area&fontColor=000000&fontSize=22)
 
 
 Each ICEland area contains a `links.txt` file with curated resources
