@@ -358,3 +358,6 @@ Built for educational purposes and personal productivity.
 
 **Separate your worlds. Sharpen your focus.**  
 ICEland — From chaos to clarity.
+
+> **From chaos to clarity — one command at a time.**  
+> Separate your worlds. Sharpen your focus.
