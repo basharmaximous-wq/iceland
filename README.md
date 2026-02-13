@@ -495,13 +495,19 @@ Prefer local-only tools with no accounts, cloud sync, or telemetry, but still wa
 ## Built With
 
 <div align="center">
+
   
 <p style="padding: 12px 40px; background: linear-gradient(135deg, #8b5cf6, #0ea5e9); border-radius: 50px; box-shadow: 0 0 20px #8b5cf6, 0 0 40px #0ea5e9; color: white; font-weight: bold; font-size: 1.2em; display: inline-block; border: 1px solid rgba(255,255,255,0.3);">
+
   🦀 RUST 🦀
+
+  
 </p>
+
 
 <br>
 <br>
+
 
 | Crate | Description |
 |-------|-------------|
