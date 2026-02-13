@@ -334,8 +334,6 @@ echo $PATH
 
 ---
 
-![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%8F%A0%20Data%20%26%20Privacy&fontColor=000000&fontSize=22)
-
 All ICEland data lives locally:
 
 ```text
@@ -347,6 +345,7 @@ No servers. No accounts. No tracking.
 ---
 
 ![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%84%20License&fontColor=000000&fontSize=22)
+
 
 Built for educational purposes and personal productivity.
 
