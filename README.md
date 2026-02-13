@@ -88,7 +88,20 @@ iceland --version
 ```
 ![🔧 Troubleshooting](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🔧Troubleshooting&fontColor=000000&fontSize=22)
 
+---
 
+
+
+Binary not found:
+
+```bash
+ls -la ~/bin/
+chmod +x ~/bin/iceland
+which iceland
+echo $PATH
+```
+
+---
 Permission issues:
 
 ```bash
@@ -319,20 +332,7 @@ Example:
 firefox -P math &
 ```
 
----
 
-
-
-Binary not found:
-
-```bash
-ls -la ~/bin/
-chmod +x ~/bin/iceland
-which iceland
-echo $PATH
-```
-
----
 
 All ICEland data lives locally:
 
@@ -353,6 +353,3 @@ Built for educational purposes and personal productivity.
 
 **Separate your worlds. Sharpen your focus.**  
 ICEland — From chaos to clarity.
-
-> **From chaos to clarity — one command at a time.**  
-> Separate your worlds. Sharpen your focus.
