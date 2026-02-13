@@ -485,7 +485,7 @@ Prefer local-only tools with no accounts, cloud sync, or telemetry, but still wa
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&color=0a3d62&labelColor=0a3d62&logo=opensourceinitiative&logoColor=white)](https://choosealicense.com/licenses/mit/)
   
 <p style="padding: 12px 30px; background: linear-gradient(135deg, #0a3d62, #0ea5e9); border-radius: 50px; box-shadow: 0 0 20px #0a3d62, 0 0 40px #0ea5e9; color: white; font-weight: bold; font-size: 1.2em; display: inline-block; border: 1px solid rgba(255,255,255,0.3);">
-  ✨ MIT LICENSE ✨
+
 </p>
 
 </div>
