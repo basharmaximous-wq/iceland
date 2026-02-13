@@ -449,6 +449,34 @@ All ICEland data lives locally:
 No servers. No accounts. No tracking.
 
 ---
+🎯 Designed for You
+ICEland adapts to your unique workflow — whatever your focus, we've got you covered.
+
+🎓
+University Students
+Need separated spaces for studying, projects, and leisure on the same laptop so they don't mix "exam prep" with gaming or social media.
+
+⌨️
+Developers Who Live in the Terminal
+Prefer a CLI and Git-friendly workflow, want per-project or per-topic environments (work, learning, side projects) with minimal overhead.
+
+📚
+Self-Learners & Career Changers
+Study multiple topics in parallel (e.g., Rust, math, German) and want each topic to have its own notes, flashcards, links, and time tracking.
+
+💼
+Remote Workers & Freelancers
+Switch between clients or roles during the day and need clear context boundaries (client A vs client B vs personal tasks) without extra SaaS tools.
+
+⏱️
+Focus & Productivity Enthusiasts
+Use time blocking or deep-work methods and want a lightweight, local tool to log sessions per area and review where their time actually went.
+
+🔒
+Privacy-Conscious Users
+Prefer local-only tools with no accounts, cloud sync, or telemetry, but still want structure: organized folders, logs, and repeatable routines.
+
+✨ One tool. Endless possibilities.
 
 ![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%84%20License&fontColor=000000&fontSize=22)
 
