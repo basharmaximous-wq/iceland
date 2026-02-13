@@ -501,7 +501,7 @@
             <p style="color: #666; margin-bottom: 20px;">
                 Join users who've transformed their digital workflow with focused islands.
             </p>
-            <a href="#install-guide" class="button" onclick="document.getElementById('install-guide').scrollIntoView({behavior: 'smooth'}); return false;">Start Your Free Trial</a>
+            <a href="#" class="button" onclick="showEmailPopup(); return false;">Start Your Free Trial</a>
         </div>
     </div>
 </section>
@@ -694,9 +694,51 @@
                 observer.observe(section);
             });
         });
+        // Email popup functions
+function showEmailPopup() {
+    document.getElementById('emailPopup').style.display = 'flex';
+}
+
+function closePopup() {
+    document.getElementById('emailPopup').style.display = 'none';
+}
+
+function copyEmail() {
+    navigator.clipboard.writeText('bashar.maximous@gmail.com');
+    alert('Email copied to clipboard! ✉️');
+}
+
+// Close popup with ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closePopup();
+    }
+});
     </script>
+    <!-- Email Popup Modal for Business Inquiries -->
+<div id="emailPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;" onclick="closePopup()">
+    <div style="background-color: white; padding: 30px; border-radius: 10px; max-width: 450px; text-align: center; box-shadow: 0 5px 30px rgba(0,0,0,0.2);" onclick="event.stopPropagation()">
+        <div style="font-size: 50px; margin-bottom: 15px;">🚀</div>
+        <h3 style="color: #0a3d62; margin-bottom: 15px;">Thanks for Your Interest!</h3>
+        <p style="margin-bottom: 20px; color: #333;">ICEland is currently in development. For business inquiries:</p>
+        
+        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #0a3d62;">
+            <p style="font-size: 1.2em; font-weight: bold; color: #0a3d62; margin-bottom: 5px;">Bashar Maximous</p>
+            <p style="font-size: 1.1em; color: #333; margin-bottom: 10px;">bashar.maximous@gmail.com</p>
+            <button onclick="copyEmail()" style="background-color: #0a3d62; color: white; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer; font-size: 0.9em;">📋 Copy Email</button>
+        </div>
+        
+        <p style="color: #666; margin-bottom: 20px;">✨ We'll get back to you within 24 hours!</p>
+        
+        <div style="display: flex; gap: 10px; justify-content: center;">
+            <button onclick="closePopup()" style="background-color: #ccc; color: #333; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer;">Close</button>
+            <a href="mailto:bashar.maximous@gmail.com?subject=ICEland%20Business%20Inquiry" style="background-color: #0a3d62; color: white; text-decoration: none; padding: 10px 25px; border-radius: 5px;">Send Email</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
 
 
 
