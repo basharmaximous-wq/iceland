@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E0FFFF,100:00BFFF&height=220&section=header&text=ICEland&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Your%20Digital%20Focus%20Environment&descAlignY=60&descAlign=50" />
 </p>
@@ -9,7 +7,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Built%20With-Rust-black?style=for-the-badge&logo=rust&logoColor=orange" />
+  <a href="https://www.rust-lang.org/">
+    <img src="https://img.shields.io/badge/Built%20With-Rust-black?style=for-the-badge&logo=rust&logoColor=orange" />
+  </a>
   <img src="https://img.shields.io/badge/Privacy-100%25%20Local-00F5FF?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Interface-CLI-0066FF?style=for-the-badge" />
 </p>
