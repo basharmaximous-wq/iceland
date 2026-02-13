@@ -14,7 +14,7 @@
 
 ---
 
-# ❄️ ICEland — Your Digital Focus Environment
+#  ICEland — Your Digital Focus Environment
 
 ICEland is a **Rust-powered CLI tool** that creates isolated digital environments ("areas") on your machine — helping you maintain deep focus by separating work, learning, gaming, trading, and other contexts.
 
