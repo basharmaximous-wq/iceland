@@ -32,7 +32,7 @@ No telemetry. No cloud. No tracking.
 > Wipe the past. Lock your privacy. Dive into total focus.
 
 ---
-![🌟Overview](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=Overview&fontColor=000000&fontSize=22)
+![🌟Overview](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=🌟Overview&fontColor=000000&fontSize=22)
 
 
 
