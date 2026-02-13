@@ -1,4 +1,10 @@
-# ICEland — Your Digital Focus Environment
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:E0FFFF,100:00BFFF&height=220&section=header&text=ICEland&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Your%20Digital%20Focus%20Environment&descAlignY=60&descAlign=50" />
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?color=00F5FF&size=22&center=true&vCenter=true&width=700&lines=From+chaos+to+clarity+—+one+command+at+a+time.;Separate+your+worlds.;Sharpen+your+focus.;Destroy+clutter.+Renew+workflow.+Stay+in+control." />
+</p>
 **From chaos to clarity — one command at a time. Separate your worlds. Sharpen your focus.**
 
 ## 🌟 Overview
