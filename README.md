@@ -308,15 +308,7 @@ By separating suggested links per area, ICEland:
 Your browser becomes aligned with your purpose.
 ![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%9A%20Flashcards&fontColor=000000&fontSize=22)
 
-
-text
-![Section Grey](https://capsule-render.vercel.app/api?type=rect&color=D3D3D3&height=60&section=header&text=%F0%9F%93%9A%20Flashcards&fontColor=000000&fontSize=22)
-
-ICEland uses **plain text flashcard decks**, stored per area, so you can drill exactly what matters in each focus zone.
-
----
-
-### 🧠 What is a deck?
+🧠 What is a deck?
 
 - A **deck** is a single `.txt` file.
 - It lives inside the area’s `flashcards` folder:
@@ -324,37 +316,39 @@ ICEland uses **plain text flashcard decks**, stored per area, so you can drill e
 ```text
 ~/.iceland/<area>/flashcards/<deck_name>.txt
 Each line in that file is one card.
-
+```
 Structure:
-
+```
 Text before | → card front (question / prompt).
 
 Text after | → card back (answer / explanation).
 
 Lines without | are skipped with a warning.
-
+```
 1️⃣ Create your first deck (math example)
-bash
+```bash
 # Make sure the folder exists
 mkdir -p ~/.iceland/math/flashcards
-
+```
 # Create a new deck file
+```
 cd ~/.iceland/math/flashcards
 nano algebra_basics.txt
 Inside algebra_basics.txt, add one card per line:
-
-text
+```
+```text
 What is 2+2?|4
 Derivative of x²|2x
 Integral of 2x|x² + C
 Solve 3x + 2 = 11|x = 3
 Save and exit.
-
+```
 2️⃣ Study the deck
 Use the flashcards command for that area:
 
-bash
+```bash
 iceland flashcards math
+```
 You will see:
 
 A list of available decks in ~/.iceland/math/flashcards/.
@@ -374,10 +368,11 @@ When all cards are done, ICEland prints “Finished deck”.
 3️⃣ Decks for any area
 You can repeat the same pattern for any area:
 
-bash
+```bash
 mkdir -p ~/.iceland/learning/flashcards
 cd ~/.iceland/learning/flashcards
 nano rust_basics.txt
+```
 Example rust_basics.txt:
 
 text
@@ -386,9 +381,11 @@ What is borrowing?|Accessing data without taking ownership
 What does &mut mean?|A mutable reference
 Then:
 
-bash
+```bash
 iceland flashcards learning
+```
 4️⃣ Tips for powerful decks
+
 Keep front short and clear (“What is…?”, “Define…”, “Example of…”).
 
 Put only one idea per card.
@@ -399,9 +396,9 @@ Create separate decks per topic: algebra_basics.txt, rust_ownership.txt, german_
 
 Flashcards live entirely in ~/.iceland, so everything stays local and under your control.
 
-text
+```text
 undefined
-
+```
 Study:
 
 ```bash
